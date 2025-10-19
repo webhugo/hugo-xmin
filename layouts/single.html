@@ -11,17 +11,14 @@
     <h1 class="article-title">{{ .Title | markdownify }}</h1>
     <div class="article-meta">
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+      {{ if .Params.categories }}
+        {{ range first 1 .Params.categories }}
+        <span class="category-meta"> / <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></span>
+        {{ end }}
+      {{ end }}
       {{ with .Params.author }}<span class="author">by {{ . }}</span>{{ end }}
     </div>
   </header>
-
-  {{ if .Params.categories }}
-  <div class="post-categories">
-    {{ range .Params.categories }}
-    <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-    {{ end }}
-  </div>
-  {{ end }}
 
   <main>
     {{ .Content }}
