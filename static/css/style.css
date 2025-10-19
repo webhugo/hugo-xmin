@@ -65,8 +65,10 @@ blockquote {
 
 .featured-image {
   width: 100%;
-  height: auto;
+  height: 200px; /* Reserve space to prevent layout shift */
+  object-fit: cover;
   margin-bottom: 1rem;
+  background-color: #f5f5f5; /* Placeholder while loading */
 }
 
 table {
