@@ -53,8 +53,8 @@ blockquote {
   padding: 3px 1em 3px;
 }
 
-/* Post styling */
-.post {
+/* Content containers - consistent width */
+.post, .content-container {
   max-width: 700px;
   margin: 2rem auto;
   padding: 0 1rem;
@@ -88,6 +88,55 @@ blockquote {
 .post-content {
   line-height: 1.6;
   font-size: 1rem;
+}
+
+/* Homepage and list styling */
+.page-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.post-list {
+  margin-top: 2rem;
+}
+
+.post-item {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.post-item:last-child {
+  border-bottom: none;
+}
+
+.post-date {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.post-item-title {
+  margin: 0.5rem 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.post-item-title a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.post-item-title a:hover {
+  color: #007acc;
+}
+
+.post-excerpt {
+  margin: 0.5rem 0 0 0;
+  color: #666;
+  line-height: 1.5;
 }
 
 table {

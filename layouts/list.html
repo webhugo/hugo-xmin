@@ -1,20 +1,27 @@
 {{ partial "header.html" . }}
 
-{{if not .IsHome }}
-<h1>{{ .Title | markdownify }}</h1>
-{{ end }}
-
-{{ .Content }}
-
-<ul>
-  {{ $pages := .Pages }}
-  {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
-  {{ range (where $pages "Section" "!=" "") }}
-  <li>
-    <span class="date">{{ .Date.Format "2006/01/02" }}</span>
-    <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
-  </li>
+<main class="content-container">
+  {{if not .IsHome }}
+  <h1 class="page-title">{{ .Title | markdownify }}</h1>
   {{ end }}
-</ul>
+
+  {{ .Content }}
+
+  <div class="post-list">
+    {{ $pages := .Pages }}
+    {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
+    {{ range (where $pages "Section" "!=" "") }}
+    <article class="post-item">
+      <time class="post-date">{{ .Date.Format "Jan 2, 2006" }}</time>
+      <h2 class="post-item-title">
+        <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+      </h2>
+      {{ with .Params.excerpt }}
+      <p class="post-excerpt">{{ . | plainify | truncate 120 }}</p>
+      {{ end }}
+    </article>
+    {{ end }}
+  </div>
+</main>
 
 {{ partial "footer.html" . }}
