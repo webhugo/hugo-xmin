@@ -10,6 +10,7 @@ html {
   --accent-bg: #f8f8f8;
   --accent-bg-hover: #e8e8e8;
   --code-bg: #f5f5f5;
+  --accent-red: #dc2626;
 }
 
 [data-theme="dark"] {
@@ -20,6 +21,18 @@ html {
   --accent-bg: #1a1a1a;
   --accent-bg-hover: #2a2a2a;
   --code-bg: #1a1a1a;
+  --accent-red: #ef4444;
+}
+
+/* Text selection */
+::selection {
+  background-color: var(--accent-red);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: var(--accent-red);
+  color: #ffffff;
 }
 
 body {
@@ -38,22 +51,23 @@ body {
   position: fixed;
   top: 20px;
   right: 20px;
-  background: var(--accent-bg);
+  background: var(--bg-color);
   border: 1px solid var(--border-color);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  transition: all 0.3s ease;
+  font-size: 14px;
+  transition: all 0.2s ease;
   z-index: 100;
+  color: var(--text-color);
 }
 
 .theme-toggle:hover {
-  background: var(--accent-bg-hover);
+  border-color: var(--accent-red);
 }
 
 /* header and footer areas */
@@ -90,14 +104,24 @@ footer a {
 
 /* Links */
 a {
-  color: var(--text-color);
+  color: var(--accent-red);
   text-decoration: underline;
-  text-decoration-color: var(--border-color);
+  text-decoration-color: transparent;
   transition: all 0.2s ease;
 }
 
 a:hover {
-  text-decoration-color: var(--text-color);
+  text-decoration-color: var(--accent-red);
+}
+
+/* Menu links should stay neutral */
+.menu a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.menu a:hover {
+  text-decoration: none;
 }
 
 /* Spacing improvements */
@@ -190,7 +214,9 @@ blockquote {
 }
 
 .post-categories a:hover, .post-tags a:hover {
-  background: var(--accent-bg-hover);
+  background: var(--accent-red);
+  color: #ffffff;
+  border-color: var(--accent-red);
 }
 
 .post-tags a:before {
