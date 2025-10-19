@@ -1,3 +1,7 @@
+html {
+  overflow-y: scroll; /* Always reserve space for scrollbar */
+}
+
 body {
   max-width: 700px;
   margin: auto;
