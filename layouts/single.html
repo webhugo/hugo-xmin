@@ -1,18 +1,38 @@
 {{ partial "header.html" . }}
 
-<div class="article-meta">
-<h1><span class="title">{{ .Title | markdownify }}</span></h1>
-{{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
-{{ if .Params.date }}<h2 class="date">{{ .Date.Format "2006/01/02" }}</h2>{{ end }}
-</div>
+<article>
+  <header class="article-meta">
+    <h1><span class="title">{{ .Title | markdownify }}</span></h1>
+    <div class="post-meta">
+      {{ .Date.Format "January 2, 2006" }}
+      {{ with .Params.author }} • by {{ . }}{{ end }}
+    </div>
+  </header>
 
-{{ with .Params.featured_image }}
-<img src="{{ . }}" alt="{{ $.Title }}">
-{{ end }}
+  {{ with .Params.featured_image }}
+  <img src="{{ . }}" alt="{{ $.Title }}">
+  {{ end }}
 
-<main>
-{{ .Content }}
-</main>
+  {{ if .Params.categories }}
+  <div class="post-categories">
+    {{ range .Params.categories }}
+    <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  <main>
+    {{ .Content }}
+  </main>
+
+  {{ if .Params.tags }}
+  <div class="post-tags">
+    {{ range .Params.tags }}
+    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+    {{ end }}
+  </div>
+  {{ end }}
+</article>
 
 {{ partial "footer.html" . }}
 

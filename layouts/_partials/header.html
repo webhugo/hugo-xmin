@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+      <span class="theme-icon">🌙</span>
+    </button>
+    
     <nav>
     <ul class="menu">
       {{ range .Site.Menus.main }}
@@ -18,3 +22,31 @@
     </ul>
     <hr/>
     </nav>
+
+    <script>
+      function toggleTheme() {
+        const body = document.body;
+        const icon = document.querySelector('.theme-icon');
+        
+        if (body.getAttribute('data-theme') === 'dark') {
+          body.removeAttribute('data-theme');
+          icon.textContent = '🌙';
+          localStorage.setItem('theme', 'light');
+        } else {
+          body.setAttribute('data-theme', 'dark');
+          icon.textContent = '☀️';
+          localStorage.setItem('theme', 'dark');
+        }
+      }
+
+      // Load saved theme
+      const savedTheme = localStorage.getItem('theme');
+      const icon = document.querySelector('.theme-icon');
+      
+      if (savedTheme === 'dark') {
+        document.body.setAttribute('data-theme', 'dark');
+        if (icon) icon.textContent = '☀️';
+      } else if (icon) {
+        icon.textContent = '🌙';
+      }
+    </script>
