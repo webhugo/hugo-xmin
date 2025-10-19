@@ -1,7 +1,5 @@
 {{ partial "header.html" . }}
 
-<link rel="stylesheet" href="/css/style.css">
-
 <article class="post">
   {{ with .Params.featured_image }}
     <img src="{{ . }}" alt="{{ $.Title }}" class="featured-image">
