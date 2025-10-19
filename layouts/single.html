@@ -5,8 +5,13 @@
 {{ if (gt .Params.date 0) }}<h2 class="date">{{ .Date.Format "2006/01/02" }}</h2>{{ end }}
 </div>
 
+{{ with .Params.featured_image }}
+  <img src="{{ . }}" alt="{{ $.Title }}" class="featured-image">
+{{ end }}
+
+
 <main>
-{{ .Content | safeHTML }}
+{{ .Content }}
 </main>
 
 {{ partial "footer.html" . }}
