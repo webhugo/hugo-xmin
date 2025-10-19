@@ -11,7 +11,7 @@
 
   <body>
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
-      <span class="theme-icon">●</span>
+      <span class="theme-text">Light</span>
     </button>
     
     <nav>
@@ -26,27 +26,27 @@
     <script>
       function toggleTheme() {
         const body = document.body;
-        const icon = document.querySelector('.theme-icon');
+        const text = document.querySelector('.theme-text');
         
         if (body.getAttribute('data-theme') === 'dark') {
           body.removeAttribute('data-theme');
-          icon.textContent = '●';
+          text.textContent = 'Light';
           localStorage.setItem('theme', 'light');
         } else {
           body.setAttribute('data-theme', 'dark');
-          icon.textContent = '○';
+          text.textContent = 'Dark';
           localStorage.setItem('theme', 'dark');
         }
       }
 
       // Load saved theme
       const savedTheme = localStorage.getItem('theme');
-      const icon = document.querySelector('.theme-icon');
+      const text = document.querySelector('.theme-text');
       
       if (savedTheme === 'dark') {
         document.body.setAttribute('data-theme', 'dark');
-        if (icon) icon.textContent = '○';
-      } else if (icon) {
-        icon.textContent = '●';
+        if (text) text.textContent = 'Dark';
+      } else if (text) {
+        text.textContent = 'Light';
       }
     </script>

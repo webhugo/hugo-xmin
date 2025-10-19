@@ -54,16 +54,17 @@ body {
   background: var(--bg-color);
   border: 1px solid var(--border-color);
   border-radius: 4px;
-  width: 32px;
-  height: 32px;
+  padding: 6px 12px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: 500;
   transition: all 0.2s ease;
   z-index: 100;
   color: var(--text-color);
+  min-width: 50px;
 }
 
 .theme-toggle:hover {
@@ -244,4 +245,54 @@ thead,
 tfoot,
 tr:nth-child(even) {
   background: var(--accent-bg);
+}
+
+/* Featured image styling */
+.featured-image {
+  margin: 0 0 2em 0;
+}
+
+.featured-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 0;
+}
+
+/* Article header styling */
+.article-header {
+  text-align: center;
+  margin-bottom: 2em;
+  padding-bottom: 1.5em;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.article-title {
+  font-size: 2.2em;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 0.5em 0;
+  color: var(--text-color);
+}
+
+.article-meta {
+  background: none;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  color: var(--text-muted);
+  font-size: 0.95em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.article-meta time {
+  font-weight: 500;
+}
+
+.article-meta .author {
+  color: var(--accent-red);
+  font-weight: 500;
 }
