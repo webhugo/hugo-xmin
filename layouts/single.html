@@ -1,25 +1,18 @@
 {{ partial "header.html" . }}
 
-<article class="post">
-  {{ with .Params.featured_image }}
-    <img src="{{ . }}" alt="{{ $.Title }}" class="featured-image" loading="lazy" decoding="async">
-  {{ end }}
+<div class="article-meta">
+<h1><span class="title">{{ .Title | markdownify }}</span></h1>
+{{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
+{{ if .Params.date }}<h2 class="date">{{ .Date.Format "2006/01/02" }}</h2>{{ end }}
+</div>
 
-  <h1 class="post-title">{{ .Title | markdownify }}</h1>
-  <p class="post-meta">
-    {{ .Date.Format "Jan 2, 2006" }}
-    {{ with .Params.categories }} • Categories:
-      {{ range . }}<a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> {{ end }}
-    {{ end }}
-    {{ with .Params.tags }} • Tags:
-      {{ range . }}<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a> {{ end }}
-    {{ end }}
-  </p>
+{{ with .Params.featured_image }}
+<img src="{{ . }}" alt="{{ $.Title }}" class="featured-image">
+{{ end }}
 
-  <div class="post-content">
-    {{ .Content }}
-  </div>
-</article>
+<main>
+{{ .Content }}
+</main>
 
 {{ partial "footer.html" . }}
 
