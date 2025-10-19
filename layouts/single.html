@@ -1,36 +1,27 @@
 {{ partial "header.html" . }}
-<div class="article-meta">
-<h1><span class="title">{{ .Title | markdownify }}</span></h1>
-{{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
-{{ if (gt .Params.date 0) }}<p class="date">{{ .Date.Format "2006/01/02" }}</p>{{ end }}
-</div>
 
-{{ with .Params.categories }}
-  <div class="categories">
-    <strong>Categories:</strong>
-    {{ range . }}
-      <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+<link rel="stylesheet" href="/css/style.css">
+
+<article class="post">
+  {{ with .Params.featured_image }}
+    <img src="{{ . }}" alt="{{ $.Title }}" class="featured-image">
+  {{ end }}
+
+  <h1 class="post-title">{{ .Title | markdownify }}</h1>
+  <p class="post-meta">
+    {{ .Date.Format "Jan 2, 2006" }}
+    {{ with .Params.categories }} • Categories:
+      {{ range . }}<a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> {{ end }}
     {{ end }}
-  </div>
-{{ end }}
-
-{{ with .Params.tags }}
-  <div class="tags">
-    <strong>Tags:</strong>
-    {{ range . }}
-      <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
+    {{ with .Params.tags }} • Tags:
+      {{ range . }}<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a> {{ end }}
     {{ end }}
+  </p>
+
+  <div class="post-content">
+    {{ .Content }}
   </div>
-{{ end }}
-
-
-{{ with .Params.featured_image }}
-  <img src="{{ . }}" alt="{{ $.Title }}" class="featured-image">
-{{ end }}
-
-
-<main>
-{{ .Content }}
-</main>
+</article>
 
 {{ partial "footer.html" . }}
+
