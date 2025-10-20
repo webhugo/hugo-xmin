@@ -1,5 +1,15 @@
 {{ partial "header.html" . }}
 
+{{ if .TableOfContents }}
+<button class="toc-toggle" onclick="toggleTOC()" aria-label="Toggle table of contents">
+  <span class="toc-text">Contents</span>
+</button>
+
+<nav class="toc" id="toc">
+  {{ .TableOfContents }}
+</nav>
+{{ end }}
+
 <article>
   {{ with .Params.featured_image }}
   <div class="featured-image">
