@@ -7,24 +7,24 @@
   </div>
   {{ end }}
 
-  {{ if .Params.excerpt }}
-  <div class="post-excerpt">
-    <strong>TLDR;</strong> <em>{{ .Params.excerpt }}</em>
-  </div>
-  {{ end }}
-
   <header class="article-header">
     <h1 class="article-title">{{ .Title | markdownify }}</h1>
     <div class="article-meta">
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+      {{ with .Params.author }}<span class="author"> / <a href="https://bio.link/vinaythoke">{{ . }}</a></span>{{ end }}
       {{ if .Params.categories }}
-        {{ range first 1 .Params.categories }}
+        {{ range .Params.categories }}
         <span class="category-meta"> / <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></span>
         {{ end }}
       {{ end }}
-      {{ with .Params.author }}<span class="author">by {{ . }}</span>{{ end }}
     </div>
   </header>
+
+  {{ if and .Params.excerpt (ne .Params.excerpt "") }}
+  <div class="post-excerpt">
+    <strong>TLDR;</strong> <em>{{ .Params.excerpt | safeHTML }}</em>
+  </div>
+  {{ end }}
 
   <main>
     {{ .Content }}

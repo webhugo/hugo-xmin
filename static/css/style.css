@@ -346,12 +346,14 @@ article main ol ol > li::before {
 }
 
 .category-meta a {
-  color: var(--accent-red);
+  color: var(--text-muted);
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 .category-meta a:hover {
+  color: var(--accent-red);
   text-decoration: underline;
 }
 
@@ -401,9 +403,21 @@ article main ol ol > li::before {
 }
 
 .article-meta .author {
-  color: var(--accent-red);
+  color: var(--text-muted);
   font-weight: 500;
-}}
+}
+
+.article-meta .author a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.article-meta .author a:hover {
+  color: var(--accent-red);
+  text-decoration: underline;
+}
 
 
 /* Post excerpt styling */
