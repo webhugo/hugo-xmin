@@ -26,11 +26,7 @@ html {
 }
 
 /* Text selection */
-::selection {
-  background-color: var(--accent-red);
-  color: #ffffff;
-}
-
+::selection,
 ::-moz-selection {
   background-color: var(--accent-red);
   color: #ffffff;
@@ -47,11 +43,11 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Dark mode toggle */
-.theme-toggle {
+/* Toggle buttons (theme and TOC) */
+.theme-toggle,
+.toc-toggle {
   position: fixed;
   top: 20px;
-  right: 20px;
   background: var(--bg-color);
   border: 1px solid var(--border-color);
   border-radius: 4px;
@@ -68,7 +64,18 @@ body {
   min-width: 50px;
 }
 
-.theme-toggle:hover {
+.theme-toggle {
+  right: 20px;
+}
+
+.toc-toggle {
+  left: 20px;
+  min-width: 60px;
+  z-index: 101;
+}
+
+.theme-toggle:hover,
+.toc-toggle:hover {
   border-color: var(--accent-red);
 }
 
@@ -501,30 +508,7 @@ article main ol ol>li::before {
   color: #ffffff;
 }
 
-/* TOC Toggle Button - Match theme toggle positioning */
-.toc-toggle {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background: var(--bg-color);
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  padding: 6px 12px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  z-index: 101;
-  color: var(--text-color);
-  min-width: 60px;
-}
 
-.toc-toggle:hover {
-  border-color: var(--accent-red);
-}
 
 /* TOC Panel */
 .toc {
@@ -556,13 +540,12 @@ article main ol ol>li::before {
   left: 0;
 }
 
-/* Hide scrollbar completely by default */
+/* Scrollbar styling */
 .toc::-webkit-scrollbar {
   width: 0px;
   background: transparent;
 }
 
-/* Show scrollbar only on hover */
 .toc:hover::-webkit-scrollbar {
   width: 6px;
 }
