@@ -403,4 +403,68 @@ article main ol ol > li::before {
 .article-meta .author {
   color: var(--accent-red);
   font-weight: 500;
+}}
+
+
+/* Post excerpt styling */
+.post-excerpt {
+  background: var(--accent-bg);
+  border-left: 3px solid var(--accent-red);
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.95em;
+  color: var(--text-muted);
+}
+
+.post-excerpt strong {
+  color: var(--accent-red);
+  font-weight: 600;
+}
+
+/* Author block styling */
+.author-block {
+  margin-top: 3em;
+  padding-top: 2em;
+  border-top: 1px solid var(--border-color);
+}
+
+.author-info h3 {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin: 0 0 1em 0;
+  color: var(--text-color);
+}
+
+.author-info p {
+  color: var(--text-muted);
+  font-size: 0.9em;
+  line-height: 1.5;
+  margin: 0 0 1em 0;
+}
+
+.author-info strong {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.author-links {
+  display: flex;
+  gap: 1em;
+}
+
+.author-links a {
+  color: var(--accent-red);
+  text-decoration: none;
+  font-size: 0.85em;
+  font-weight: 500;
+  padding: 0.4em 0.8em;
+  border: 1px solid var(--accent-red);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.author-links a:hover {
+  background: var(--accent-red);
+  color: #ffffff;
 }

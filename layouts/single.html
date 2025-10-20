@@ -7,6 +7,12 @@
   </div>
   {{ end }}
 
+  {{ if .Params.excerpt }}
+  <div class="post-excerpt">
+    <strong>TLDR;</strong> <em>{{ .Params.excerpt }}</em>
+  </div>
+  {{ end }}
+
   <header class="article-header">
     <h1 class="article-title">{{ .Title | markdownify }}</h1>
     <div class="article-meta">
@@ -23,6 +29,17 @@
   <main>
     {{ .Content }}
   </main>
+
+  <div class="author-block">
+    <div class="author-info">
+      <h3>About the Author</h3>
+      <p><strong>Vinay Thoke</strong> is a seasoned technology leader and digital strategist with expertise in cloud architecture, DevOps, and scalable system design. Currently driving digital transformation initiatives, he combines technical depth with business acumen to deliver innovative solutions.</p>
+      <div class="author-links">
+        <a href="https://linkedin.com/in/vinaythoke" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://bio.link/vinaythoke" target="_blank" rel="noopener">Bio</a>
+      </div>
+    </div>
+  </div>
 
   {{ if .Params.tags }}
   <div class="post-tags">
