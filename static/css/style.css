@@ -14,14 +14,14 @@ html {
 }
 
 [data-theme="dark"] {
-  --bg-color: #000000;
-  --text-color: #ffffff;
-  --text-muted: #aaaaaa;
-  --border-color: #333333;
-  --accent-bg: #1a1a1a;
-  --accent-bg-hover: #2a2a2a;
-  --code-bg: #1a1a1a;
-  --accent-red: #ef4444;
+  --bg-color: #1a1a1a;
+  --text-color: #e5e5e5;
+  --text-muted: #9ca3af;
+  --border-color: #404040;
+  --accent-bg: #2a2a2a;
+  --accent-bg-hover: #3a3a3a;
+  --code-bg: #262626;
+  --accent-red: #f87171;
 }
 
 /* Text selection */
